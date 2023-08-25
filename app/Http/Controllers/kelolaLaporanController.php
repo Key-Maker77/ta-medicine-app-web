@@ -88,7 +88,9 @@ class kelolaLaporanController extends Controller
 
     public function cetakditerima()
     {
-        $cetakditerima = Pemesanan::where('status', 1)->get();
+        $cetakditerima = Pemesanan::where('status', 1)
+        ->orWhere('status', 3)
+        ->get();
         return view('laporan.diterima.cetak', compact('cetakditerima'));
     }
 
