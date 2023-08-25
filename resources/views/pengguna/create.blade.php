@@ -27,12 +27,7 @@
           <label class="col-sm-2 col-form-label text-black">Password</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" name="password">
-          </div>
-        </div>
-        <div class="mb-2 row">
-          <label class="col-sm-2 col-form-label text-black">Role</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" name="role">
+            <input type="hidden" class="form-control" name="role" value="admin">
           </div>
         </div>
         <br>

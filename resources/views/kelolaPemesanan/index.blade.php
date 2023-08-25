@@ -37,8 +37,8 @@
               <td>{{ $data->jadwal }}</td>
               <td>{{ $data->jam }}</td>
               <td style="vertical-align: middle; text-align: center;">
-                            <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($data->alamat) }}" target="_blank">Cek Lokasi</a>
-                        </td>
+                <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($data->alamat) }}" target="_blank">Cek Lokasi</a>
+              </td>
               <td>{{ $data->jenis_pengobatan }}</td>
               <td>{{ $data->nama_tabib }}</td>
               <td>{{ $data->harga }}</td>
@@ -53,11 +53,30 @@
               </td>
               <td>
                 <div class="d-flex">
-                @if ($data->status == 0)
-                <a class="btn btn-success" href="{{ route('pesananditerima', $data->id) }}"><i class="fa-solid fa-check"></i></a>
-                &nbsp;
-                <a class="btn btn-danger" href="{{ route('pesananditolak', $data->id) }}"><i class="fas fa-xmark"></i></a>
-                @endif
+                  @if ($data->status == 0)
+                  <a class="btn btn-success" href="{{ route('pesananditerima', $data->id) }}" onclick="showConfirmationModal(event, 'Terima pesanan')"><i class="fa-solid fa-check"></i></a>
+                  &nbsp;
+                  <a class="btn btn-danger" href="{{ route('pesananditolak', $data->id) }}" onclick="showConfirmationModal(event, 'Tolak pesanan')"><i class="fas fa-xmark"></i></a>
+                  @endif
+                </div>
+
+                <!-- Modal -->
+                <div class="modal" id="confirmationModal">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Konfirmasi</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Apakah Anda yakin ingin <span id="actionText"></span> pesanan ini?</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <a id="confirmButton" class="btn btn-primary">Konfirmasi</a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </td>
             </tr>

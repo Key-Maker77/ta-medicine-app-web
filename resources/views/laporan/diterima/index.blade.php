@@ -55,7 +55,7 @@
                 @endif
               </td>
               <td>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmationModal">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmationModal_{{ $data->id }}">
                   <span class="badge rounded-pill text-bg-danger">
                     <i class="fas fa-trash fa-solid"></i>
                   </span>
