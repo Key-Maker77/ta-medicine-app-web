@@ -17,6 +17,7 @@
     <link href="{{ asset('template/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
     <link href="{{ asset('template/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('vendor/sweetalert2/sweetalert2.min.css') }}">
 
 </head>
 
@@ -34,7 +35,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/home">
                     <i class="fa-solid fa-home"></i>
-                    <span>Home</span></a>
+                    <span>Dashboard</span></a>
             </li>
 
             <hr class="sidebar-divider">
@@ -183,6 +184,10 @@
                 });
             });
         </script>
+
+<script src="{{ asset('vendor/sweetalert2/sweetalert2.all.min.js') }}"></script>
+    
+
 
 </body>
 

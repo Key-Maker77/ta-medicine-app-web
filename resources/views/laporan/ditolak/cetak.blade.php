@@ -12,6 +12,8 @@
 </head>
 
 <body>
+  <center> <img src="images/Korp-Surat.png" alt="" style="width: 800px; "> </center>
+  <hr>
   <div class="form-group">
     <h3 align="center" style="color: black">Laporan Pesanan Ditolak</h3>
     <center> {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd,D MMMM Y') }} </center>

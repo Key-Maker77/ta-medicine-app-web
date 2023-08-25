@@ -154,6 +154,7 @@ class kelolaTabibController extends Controller
     {
         $data = Tabib::where('id', $id)->delete();
         return redirect('/kelolaTabib')->with('warning','Data berhasil dihapus');
+        
     }
 
 }
