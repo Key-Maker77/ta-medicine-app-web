@@ -26,6 +26,10 @@
                         <span>Keahlian</span>
                         <span>{{ $data->keahlian }}</span>
                     </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span>No Hp</span>
+                        <span>{{ $data->nomor_hp }}</span>
+                    </div>
                 </div>
 
             </div>
