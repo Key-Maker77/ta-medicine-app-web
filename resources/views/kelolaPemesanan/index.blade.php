@@ -54,9 +54,9 @@
               <td>
                 <div class="d-flex">
                   @if ($data->status == 0)
-                  <a class="btn btn-success" href="{{ route('pesananditerima', $data->id) }}" onclick="showConfirmationModal(event, 'Terima pesanan')"><i class="fa-solid fa-check"></i></a>
+                  <a class="btn btn-success" href="{{ route('pesananditerima', $data->id) }}"><i class="fa-solid fa-check"></i></a>
                   &nbsp;
-                  <a class="btn btn-danger" href="{{ route('pesananditolak', $data->id) }}" onclick="showConfirmationModal(event, 'Tolak pesanan')"><i class="fas fa-xmark"></i></a>
+                  <a class="btn btn-danger" href="{{ route('pesananditolak', $data->id) }}"><i class="fas fa-xmark"></i></a>
                   @endif
                 </div>
 
