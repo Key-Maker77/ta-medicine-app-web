@@ -36,6 +36,8 @@
                     Terima kasih Yahh
                     @else
                     Yahh Ditolak
+                    Coba lakukan pemesanan
+                    kembali dengan jadwal yang berbeda
                     @endif
             </b></p>
         </div>

@@ -21,11 +21,15 @@
         </div>
       </div>
       <div class="mb-2 row">
-        <label style="color: black;" class="col-sm-2 col-form-label text-black">Jenis Kelamin</label>
-        <div class="col-sm-10">
-          <input style="border-radius: 15px;" type="text" class="form-control" name="jenis_kelamin">
-        </div>
-      </div>
+    <label style="color: black;" class="col-sm-2 col-form-label text-black">Jenis Kelamin</label>
+    <div class="col-sm-10">
+        <select style="border-radius: 15px;" class="form-control" name="jenis_kelamin">
+            <option value="Pria">Laki-Laki</option>
+            <option value="Wanita">Wanita</option>
+        </select>
+    </div>
+</div>
+
       <div class="mb-2 row">
         <label style="color: black;" class="col-sm-2 col-form-label text-black">No Hp</label>
         <div class="col-sm-10">
