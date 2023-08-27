@@ -31,7 +31,7 @@ use App\Http\Controllers\RegisterUserController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('user.loginuser');
 });
 
 Auth::routes();
