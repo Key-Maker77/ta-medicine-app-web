@@ -22,9 +22,10 @@
         <i class="fa-solid fa-circle-arrow-left" style="font-size: 30px; margin-top: 15px;"></i>
     </a>
     <br>
-    <div class="container" style="margin-top: 15px; margin-left: 15px;">
-        <img class="card-img-top" src="{{ url('images/'.$pengobatan->gambar) }}" alt="Card image cap" style="width: 300px; height: 200px; padding-top: 10px; padding-bottom: 10px; margin-left: 25px; border-radius: 55px;">
-    </div>
+    <div class="container" style="margin-top: 15px; display: flex; justify-content: center;">
+    <img class="card-img-top" src="{{ url('images/'.$pengobatan->gambar) }}" alt="Card image cap" style="width: 300px; height: 200px; padding-top: 10px; padding-bottom: 10px; border-radius: 55px;">
+</div>
+
     <br>
     <div class="container" style="margin-top: 30px; margin-left: 15px; margin-right: 15px;">
         <label><b>Penjelasan</b></label>
