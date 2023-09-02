@@ -46,8 +46,32 @@
                                 @endif
                             </td>
                             <td>
-                            <a class="btn btn-success" href="{{ route('tabibaktif', $data->id) }}"><i class="fas fa-check"></i></a>
+                                <a class="btn btn-success" href="#" data-toggle="modal" data-target="#confirmAktifModal{{ $data->id }}">
+                                    <i class="fas fa-check"></i>
+                                </a>
                             </td>
+
+                            <!-- Modal konfirmasi mengaktifkan kembali tabib -->
+                            <div class="modal fade" id="confirmAktifModal{{ $data->id }}" tabindex="-1" role="dialog" aria-labelledby="confirmAktifModalLabel{{ $data->id }}" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="confirmAktifModalLabel{{ $data->id }}">Konfirmasi Aktifkan Kembali Tabib</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Apakah Anda yakin ingin mengaktifkan kembali tabib ini?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                            <a class="btn btn-success" href="{{ route('tabibaktif', $data->id) }}">Ya, Aktifkan Kembali</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </tr>
                         </td>
                         </tr>
