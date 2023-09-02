@@ -42,7 +42,7 @@ class PenggunaController extends Controller
         $data = new User();
         $data->name = $request->name;
         $data->email = $request->email;
-        $data->password = $request->password;
+        $data->password = bcrypt($request->password);
         $data->role = $request->role;
 
 
@@ -53,5 +53,5 @@ class PenggunaController extends Controller
         }
     }
 
-    
+
 }
