@@ -35,6 +35,8 @@
 <div class="container">
     <br>
     <div>
+    Assalamu'alaikum,
+    <br>
     {{ auth()->user()->name}}
     </div>
 
