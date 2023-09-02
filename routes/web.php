@@ -30,7 +30,7 @@ use App\Http\Controllers\RegisterUserController;
 |
 */
 
-Route::get('/ty9988ty', function () {
+Route::get('/99ryyn88', function () {
     return view('auth.login');
 });
 
