@@ -17,7 +17,7 @@
       <div class="mb-2 row">
         <label style="color: black;" class="col-sm-2 col-form-label text-black">Nama Pasien</label>
         <div class="col-sm-10">
-          <input style="border-radius: 15px;" type="text" class="form-control" name="nama_pasien">
+          <input style="border-radius: 15px;" type="text" class="form-control" name="nama_pasien" value="{{ auth()->user()->name}}" readonly>
         </div>
       </div>
       <div class="mb-2 row">
@@ -70,8 +70,13 @@
   </div>
   <div class="form-group">
     <label style="color: black;" for="exampleFormControlSelect1">Nama Tabib</label>
+    {{count($tab)}}
     <select style="border-radius: 15px;" class="form-control" id="exampleFormControlSelect1" name="nama_tabib">
+      @if (count($tab) == 0 || count($tab) == null)
+      <option value="" hidden>Tidak ada tabib yang tersedia</option>
+      @else
       <option value="" hidden>Pilih Tabib</option>
+      @endif
       @foreach($tab as $data)
                 <option value="{{ $data->nama_tabib }}">{{ $data->nama_tabib }}</option>
                 @endforeach

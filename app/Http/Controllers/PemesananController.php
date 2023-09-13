@@ -20,7 +20,7 @@ class PemesananController extends Controller
     public function pemesanan()
     {
         $pengobatan = Pengobatan::all();
-        $tab = Tabib::all();
+        $tab = Tabib::where('status', 0)->get();
         return view(
             'user.pemesanan',
             compact('tab','pengobatan')
