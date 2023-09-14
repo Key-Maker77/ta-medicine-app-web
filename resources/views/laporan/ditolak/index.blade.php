@@ -9,6 +9,47 @@
       <a class="btn btn-primary" target="_blank" style="float: right;" href="/cetakditolak"><i class="fa-solid fa-print"></i>&nbsp;&nbsp;Cetak Laporan</a>
     </div>
     <div class="card-header py-3">
+      <form method="GET" action="{{ route('filterByMonthDitolak') }}">
+        @csrf
+        <div class="form-row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="bulan">Pilih Bulan:</label>
+              <select class="form-control" id="bulan" name="bulan">
+                <option value="01">Januari</option>
+                <option value="02">Februari</option>
+                <option value="03">Maret</option>
+                <option value="04">April</option>
+                <option value="05">Mei</option>
+                <option value="06">Juni</option>
+                <option value="07">Juli</option>
+                <option value="08">Agustus</option>
+                <option value="09">September</option>
+                <option value="10">Oktober</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="tahun">Pilih Tahun:</label>
+              <select class="form-control" id="tahun" name="tahun">
+                @php
+                  $currentYear = date('Y');
+                  for ($year = $currentYear; $year >= 2020; $year--) {
+                    echo "<option value='$year'>$year</option>";
+                  }
+                @endphp
+              </select>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary float-right">Filter</button>
+        <a href="{{ route('vPesananDitolak') }}" class="btn btn-secondary float-right mr-2">Tampilkan Semua</a>
+      </form>
+    </div>
+    <div class="card-header py-3">
       <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
           <thead>

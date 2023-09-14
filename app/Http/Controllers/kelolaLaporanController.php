@@ -6,7 +6,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Pemesanan;
-use App\Models\Pengobatan;
 use App\Models\Tabib;
 
 class kelolaLaporanController extends Controller
@@ -49,13 +48,13 @@ class kelolaLaporanController extends Controller
         }
     }
     public function vPesananDiterima()
-{
-    $diterima = Pemesanan::where('status', 1)
-        ->orWhere('status', 3)
-        ->get();
+    {
+        $diterima = Pemesanan::where('status', 1)
+            ->orWhere('status', 3)
+            ->get();
 
-    return view('laporan.diterima.index', compact('diterima'));
-}
+        return view('laporan.diterima.index', compact('diterima'));
+    }
 
 
     public function vPesananDitolak()
@@ -89,8 +88,8 @@ class kelolaLaporanController extends Controller
     public function cetakditerima()
     {
         $cetakditerima = Pemesanan::where('status', 1)
-        ->orWhere('status', 3)
-        ->get();
+            ->orWhere('status', 3)
+            ->get();
         return view('laporan.diterima.cetak', compact('cetakditerima'));
     }
 
@@ -98,5 +97,33 @@ class kelolaLaporanController extends Controller
     {
         $cetakditolak = Pemesanan::where('status', 2)->get();
         return view('laporan.ditolak.cetak', compact('cetakditolak'));
+    }
+
+    public function filterByMonthDiterima(Request $request)
+    {
+        $bulan = $request->input('bulan');
+        $tahun = $request->input('tahun');
+
+        // Misalnya, jika Anda menggunakan model Pemesanan, Anda dapat mengambil data berdasarkan bulan dan tahun seperti ini:
+        $diterima = Pemesanan::whereYear('jadwal', $tahun)
+            ->whereMonth('jadwal', $bulan)
+            ->whereIn('status', [1, 3]) // Menggunakan whereIn untuk memfilter status 1 dan 3
+            ->get();
+
+        return view('laporan.diterima.index', ['diterima' => $diterima]);
+    }
+
+    public function filterByMonthDitolak(Request $request)
+    {
+        $bulan = $request->input('bulan');
+        $tahun = $request->input('tahun');
+
+        // Misalnya, jika Anda menggunakan model Pemesanan, Anda dapat mengambil data berdasarkan bulan dan tahun seperti ini:
+        $ditolak = Pemesanan::whereYear('jadwal', $tahun)
+            ->whereMonth('jadwal', $bulan)
+            ->whereIn('status', 2) // Menggunakan whereIn untuk memfilter status 1 dan 3
+            ->get();
+
+        return view('laporan.ditolak.index', ['ditolak' => $ditolak]);
     }
 }

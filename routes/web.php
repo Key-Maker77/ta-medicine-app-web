@@ -71,6 +71,12 @@ Route::get('/penggunapasien', [PenggunaController::class,'penggunapasien'])->nam
 Route::delete('/penggunaadmin/{id}', [PenggunaController::class, 'destroyadmin'])->name('destroyadmin');
 Route::delete('/penggunapasien/{id}', [PenggunaController::class, 'destroypasien'])->name('destroypasien');
 
+//laporan
+// routes/web.php
+Route::get('/filterByMonthDiterima', [kelolaLaporanController::class, 'filterByMonthDiterima'])->name('filterByMonthDiterima');
+Route::get('/filterByMonthDitolak', [kelolaLaporanController::class, 'filterByMonthDitolak'])->name('filterByMonthDitolak');
+
+
 
 
 
