@@ -17,7 +17,7 @@
   <hr>
   <div class="form-group">
     <h3 align="center" style="color: black">Laporan Pesanan Diterima</h3>
-   <center> {{ \Carbon\Carbon::now()->locale('id')->isoFormat('dddd,D MMMM Y') }} </center>
+   <center> {{ $bulan }} {{ $tahun }} </center>
   </div>
   <div class="card-header py-3">
 
@@ -38,8 +38,8 @@
           </tr>
         </thead>
         <tbody>
-          @if(!empty($cetakditerima))
-          @foreach ($cetakditerima as $data)
+          @if(!empty($diterima))
+          @foreach ($diterima as $data)
           <tr>
             <td>{{ $data->id }}</td>
             <td>{{ $data->nama_pasien }}</td>

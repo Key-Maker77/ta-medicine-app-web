@@ -13,19 +13,19 @@
             <div class="form-group">
               <label for="bulan">Pilih Bulan:</label>
               <select class="form-control" id="bulan" name="bulan">
-                <option value=""></option>
-                <option value="01">Januari</option>
-                <option value="02">Februari</option>
-                <option value="03">Maret</option>
-                <option value="04">April</option>
-                <option value="05">Mei</option>
-                <option value="06">Juni</option>
-                <option value="07">Juli</option>
-                <option value="08">Agustus</option>
-                <option value="09">September</option>
-                <option value="10">Oktober</option>
-                <option value="11">November</option>
-                <option value="12">Desember</option>
+                <option value=""{{ $bulan == '' ? 'selected' : '' }}></option>
+                <option value="01"{{ $bulan == '01' ? 'selected' : '' }}>Januari</option>
+                <option value="02"{{ $bulan == '02' ? 'selected' : '' }}>Februari</option>
+                <option value="03"{{ $bulan == '03' ? 'selected' : '' }}>Maret</option>
+                <option value="04"{{ $bulan == '04' ? 'selected' : '' }}>April</option>
+                <option value="05"{{ $bulan == '05' ? 'selected' : '' }}>Mei</option>
+                <option value="06"{{ $bulan == '06' ? 'selected' : '' }}>Juni</option>
+                <option value="07"{{ $bulan == '07' ? 'selected' : '' }}>Juli</option>
+                <option value="08"{{ $bulan == '08' ? 'selected' : '' }}>Agustus</option>
+                <option value="09"{{ $bulan == '09' ? 'selected' : '' }}>September</option>
+                <option value="10"{{ $bulan == '10' ? 'selected' : '' }}>Oktober</option>
+                <option value="11"{{ $bulan == '11' ? 'selected' : '' }}>November</option>
+                <option value="12"{{ $bulan == '12' ? 'selected' : '' }}>Desember</option>
               </select>
             </div>
           </div>
@@ -33,12 +33,7 @@
             <div class="form-group">
               <label for="tahun">Pilih Tahun:</label>
               <select class="form-control" id="tahun" name="tahun">
-                @php
-                $currentYear = date('Y');
-                for ($year = $currentYear; $year >= 2020; $year--) {
-                echo "<option value='$year'>$year</option>";
-                }
-                @endphp
+                <option value="{{$tahun}}">{{$tahun}}</option>
               </select>
             </div>
           </div>
@@ -119,7 +114,7 @@
     const selectedYear = document.getElementById('tahun').value;
 
     // Construct the URL with the selected values
-    const filterUrl = `{{ route('fecth') }}?bulan=${selectedMonth}&tahun=${selectedYear}`;
+    const filterUrl = `{{ route('filterByMonthDiterima') }}?bulan=${selectedMonth}&tahun=${selectedYear}`;
 
     // Redirect to the filtered URL
     window.location.href = filterUrl;

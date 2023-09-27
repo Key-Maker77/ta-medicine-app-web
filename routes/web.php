@@ -75,6 +75,9 @@ Route::delete('/penggunapasien/{id}', [PenggunaController::class, 'destroypasien
 // routes/web.php
 Route::get('/filterByMonthDiterima', [kelolaLaporanController::class, 'filterByMonthDiterima'])->name('filterByMonthDiterima');
 Route::get('/filterByMonthDitolak', [kelolaLaporanController::class, 'filterByMonthDitolak'])->name('filterByMonthDitolak');
+Route::get('/cetakPdf', [kelolaLaporanController::class, 'cetakPdf'])->name('cetakPdf');
+Route::get('/fect', [kelolaLaporanController::class, 'fecth'])->name('fecth');
+
 
 
 

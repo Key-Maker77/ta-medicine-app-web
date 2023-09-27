@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Pemesanan;
 use App\Models\Tabib;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class kelolaLaporanController extends Controller
 {
@@ -85,12 +86,21 @@ class kelolaLaporanController extends Controller
         return redirect()->back()->with('success', 'Post berhasil dihapus.');
     }
 
-    public function cetakditerima()
+
+    public function cetakPdf(Request $request)
     {
-        $cetakditerima = Pemesanan::where('status', 1)
-            ->orWhere('status', 3)
+        $bulan = $request->input('bulan');
+        $tahun = $request->input('tahun');
+
+        // Query untuk mengambil data berdasarkan bulan dan tahun di jadwal
+        $diterima = Pemesanan::whereYear('jadwal', $tahun)
+            ->whereMonth('jadwal', $bulan)
+            ->whereIn('status', [1, 3])
             ->get();
-        return view('laporan.diterima.cetak', compact('cetakditerima'));
+
+        // Tampilkan hasil sortiran dalam PDF
+        return view('laporan.diterima.cetak', compact('diterima', 'bulan', 'tahun'));
+
     }
 
     public function cetakditolak()
@@ -99,6 +109,21 @@ class kelolaLaporanController extends Controller
         return view('laporan.ditolak.cetak', compact('cetakditolak'));
     }
 
+    public function fecth(Request $request)
+    {
+        $bulan = $request->input('bulan');
+        $tahun = $request->input('tahun');
+
+        // Misalnya, jika Anda menggunakan model Pemesanan, Anda dapat mengambil data berdasarkan bulan dan tahun seperti ini:
+        $diterima = Pemesanan::whereYear('jadwal', $tahun)
+            ->whereMonth('jadwal', $bulan)
+            ->whereIn('status', [1, 3]) // Menggunakan whereIn untuk memfilter status 1 dan 3
+            ->get();
+
+        return view('laporan.diterima.output', ['diterima' => $diterima, 'bulan' => $bulan, 'tahun' => $tahun]);
+
+
+    }
     public function filterByMonthDiterima(Request $request)
     {
         $bulan = $request->input('bulan');
@@ -110,7 +135,7 @@ class kelolaLaporanController extends Controller
             ->whereIn('status', [1, 3]) // Menggunakan whereIn untuk memfilter status 1 dan 3
             ->get();
 
-        return view('laporan.diterima.index', ['diterima' => $diterima]);
+        return view('laporan.diterima.index', ['diterima' => $diterima, 'bulan' => $bulan, 'tahun' => $tahun]);
     }
 
     public function filterByMonthDitolak(Request $request)

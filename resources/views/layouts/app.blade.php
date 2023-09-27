@@ -185,22 +185,21 @@
             });
         </script>
 
-<script src="{{ asset('vendor/sweetalert2/sweetalert2.all.min.js') }}"></script>
-    
-<script>
-                  function showConfirmationModal(event, action) {
-                    event.preventDefault();
-                    const modal = document.getElementById('confirmationModal');
-                    const actionText = document.getElementById('actionText');
-                    const confirmButton = document.getElementById('confirmButton');
+        <script src="{{ asset('vendor/sweetalert2/sweetalert2.all.min.js') }}"></script>
 
-                    actionText.textContent = action;
-                    confirmButton.href = event.target.href;
+        <script>
+            function showConfirmationModal(event, action) {
+                event.preventDefault();
+                const modal = document.getElementById('confirmationModal');
+                const actionText = document.getElementById('actionText');
+                const confirmButton = document.getElementById('confirmButton');
 
-                    $(modal).modal('show');
-                  }
-                </script>
+                actionText.textContent = action;
+                confirmButton.href = event.target.href;
 
+                $(modal).modal('show');
+            }
+        </script>
 </body>
 
 </html>
